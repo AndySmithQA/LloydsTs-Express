@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
+.chart-container {
+    margin: auto;
+    background-color: white;
+}
+
+
+:root{
+  --primary: black;
+  --secondary: #a8dadc;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding:20px;
+  background-color: var(--primary);
+  color:white;
+}
+* {
+  color: #fff;
+  margin: 0;
+}
+
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+
+
+
+
+/* contact form */
+
+/* 
+#success {
+  color: green;
+  font-size: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+} */
+/* .runs > a p:last-child {
+ font-size: 0.8em;
+ color: #bbb;
+} */
+
+
+
+.stat {
+  margin: 20px 0;
+  background: rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* p.rec{
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+  background: rgba(0,0,0,0.2);
+  text-align: center;
+  align-self: center;
+} */

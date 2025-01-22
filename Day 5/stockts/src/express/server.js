@@ -1,0 +1,95 @@
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+const port = 3001;
+app.use(cors());
+
+const prices =[
+  {"id": 1, "date": "02/09/2024", "closing": 58.12},
+    {"id": 2, "date": "03/09/2024", "closing": 57.26},
+    {"id": 3, "date": "04/09/2024", "closing": 57.06},
+    {"id": 4, "date": "05/09/2024", "closing": 57.58},
+    {"id": 5, "date": "06/09/2024", "closing": 56.42},
+    {"id": 6, "date": "09/09/2024", "closing": 57.26},
+    {"id": 7, "date": "10/09/2024", "closing": 56.48},
+    {"id": 8, "date": "11/09/2024", "closing": 57.44},
+    {"id": 9, "date": "12/09/2024", "closing": 57.90},
+    {"id": 10, "date": "13/09/2024", "closing": 58.04},
+    {"id": 11, "date": "16/09/2024", "closing": 58.16},
+    {"id": 12, "date": "17/09/2024", "closing": 58.58},
+    {"id": 13, "date": "18/09/2024", "closing": 57.88},
+    {"id": 14, "date": "19/09/2024", "closing": 58.50},
+    {"id": 15, "date": "20/09/2024", "closing": 58.20},
+    {"id": 16, "date": "23/09/2024", "closing": 58.10},
+    {"id": 17, "date": "24/09/2024", "closing": 59.28},
+    {"id": 18, "date": "25/09/2024", "closing": 58.18},
+    {"id": 19, "date": "26/09/2024", "closing": 58.98},
+    {"id": 20, "date": "27/09/2024", "closing": 59.40},
+    {"id": 21, "date": "30/09/2024", "closing": 58.80},
+    {"id": 22, "date": "01/10/2024", "closing": 58.20},
+    {"id": 23, "date": "02/10/2024", "closing": 57.66},
+    {"id": 24, "date": "03/10/2024", "closing": 57.44},
+    {"id": 25, "date": "04/10/2024", "closing": 58.80},
+    {"id": 26, "date": "07/10/2024", "closing": 59.16},
+    {"id": 27, "date": "08/10/2024", "closing": 58.26},
+    {"id": 28, "date": "09/10/2024", "closing": 59.24},
+    {"id": 29, "date": "10/10/2024", "closing": 59.44},
+    {"id": 30, "date": "11/10/2024", "closing": 59.94},
+    {"id": 31, "date": "14/10/2024", "closing": 59.64},
+    {"id": 32, "date": "15/10/2024", "closing": 60.08},
+    {"id": 33, "date": "16/10/2024", "closing": 61.20},
+    {"id": 34, "date": "17/10/2024", "closing": 61.86},
+    {"id": 35, "date": "18/10/2024", "closing": 62.18},
+    {"id": 36, "date": "21/10/2024", "closing": 61.80},
+    {"id": 37, "date": "22/10/2024", "closing": 62.00},
+    {"id": 38, "date": "23/10/2024", "closing": 61.62},
+    {"id": 39, "date": "24/10/2024", "closing": 62.20},
+    {"id": 40, "date": "25/10/2024", "closing": 57.66},
+    {"id": 41, "date": "28/10/2024", "closing": 56.12},
+    {"id": 42, "date": "29/10/2024", "closing": 54.54},
+    {"id": 43, "date": "30/10/2024", "closing": 53.66},
+    {"id": 44, "date": "31/10/2024", "closing": 53.40},
+    {"id": 45, "date": "01/11/2024", "closing": 54.42},
+    {"id": 46, "date": "04/11/2024", "closing": 54.82},
+    {"id": 47, "date": "05/11/2024", "closing": 54.86},
+    {"id": 48, "date": "06/11/2024", "closing": 54.76},
+    {"id": 49, "date": "07/11/2024", "closing": 54.54},
+    {"id": 50, "date": "08/11/2024", "closing": 53.08},
+    {"id": 51, "date": "11/11/2024", "closing": 54.54},
+    {"id": 52, "date": "12/11/2024", "closing": 53.86},
+    {"id": 53, "date": "13/11/2024", "closing": 54.60},
+    {"id": 54, "date": "14/11/2024", "closing": 55.04},
+    {"id": 55, "date": "15/11/2024", "closing": 56.48},
+    {"id": 56, "date": "18/11/2024", "closing": 56.24},
+    {"id": 57, "date": "19/11/2024", "closing": 55.32},
+    {"id": 58, "date": "20/11/2024", "closing": 55.42},
+    {"id": 59, "date": "21/11/2024", "closing": 55.02},
+    {"id": 60, "date": "22/11/2024", "closing": 54.42},
+    {"id": 61, "date": "25/11/2024", "closing": 54.66},
+    {"id": 62, "date": "26/11/2024", "closing": 53.42},
+    {"id": 63, "date": "27/11/2024", "closing": 53.18},
+    {"id": 64, "date": "28/11/2024", "closing": 53.26},
+    {"id": 65, "date": "29/11/2024", "closing": 53.06},
+    {"id": 66, "date": "02/12/2024", "closing": 52.82},
+    {"id": 67, "date": "03/12/2024", "closing": 52.94},
+    {"id": 68, "date": "04/12/2024", "closing": 53.00},
+    {"id": 69, "date": "05/12/2024", "closing": 53.66},
+    {"id": 70, "date": "06/12/2024", "closing": 53.08},
+    {"id": 71, "date": "09/12/2024", "closing": 53.24},
+    {"id": 72, "date": "10/12/2024", "closing": 52.94},
+    {"id": 73, "date": "11/12/2024", "closing": 54.22},
+    {"id": 74, "date": "12/12/2024", "closing": 55.00},
+    {"id": 75, "date": "13/12/2024", "closing": 55.38},
+    {"id": 76, "date": "16/12/2024", "closing": 55.38},
+    {"id": 77, "date": "17/12/2024", "closing": 55.38},
+    {"id": 78, "date": "18/12/2024", "closing": 54.82}
+]
+
+app.get('/', (req, res) => {
+ res.json(prices);
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
