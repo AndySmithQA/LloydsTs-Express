@@ -16,7 +16,7 @@ const Counter = () => {
     const addValue = Number(incrementAmount) || 0; //avoids NaN
 
     const resetAll = () => {
-        setIncrementAmount('0')
+        setIncrementAmount(0)
         dispatch(reset())
     }
 
